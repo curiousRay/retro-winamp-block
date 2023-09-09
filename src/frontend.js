@@ -57,6 +57,10 @@ window.addEventListener( 'load', () => {
 
 	// Render the player
 	new Webamp( { ...options, ...milkdropOptions } ).renderWhenReady( container ).then( () => {
+		
+		// move webamp from body root to our container
+		container.appendChild(document.getElementById( 'webamp' ));
+		
 		const player = document.getElementById( 'webamp' );
 
 		// Add is loaded class after artifical delay to reduce page jank

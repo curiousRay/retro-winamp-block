@@ -68,10 +68,31 @@ window.addEventListener( 'load', () => {
 			setTimeout( () => {
 				player.classList.add( 'is-loaded' );
 
+				// Adjust layouts
 				document.getElementById("webamp").children[0].children[0].childNodes.forEach(elem => {
 					elem.style.transform = "";
 					elem.style.position = "";
 				})
+
+				// Callback function to handle mutations in the DOM
+				function handleMutation(mutationsList, observer) {
+					for (const mutation of mutationsList) {
+						if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+							for (const newNode of mutation.addedNodes) {
+								if (newNode.nodeType === Node.ELEMENT_NODE && newNode.id === 'webamp-context-menu') {
+									// Find the newly-added menu node, set z-index to make it visible
+									newNode.style.zIndex = '5';
+								}
+							}
+						}
+					}
+				}
+
+				// Create a MutationObserver to watch for changes in the DOM
+				const observer = new MutationObserver(handleMutation);
+
+				// Start observing the DOM
+				observer.observe(document, { childList: true, subtree: true });
 
 			}, 1000 );
 		}

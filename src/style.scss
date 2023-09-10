@@ -25,6 +25,15 @@
 
 #webamp:not(.is-loaded) {
 	opacity: 0;
-	position: absolute;
+	position: relative;
 	visibility: hidden;
+}
+
+/* Sidebar block styling */
+.widget {
+	#webamp {
+		position: relative;
+		#main-window{position: relative;}
+		.window {position: relative;}
+	}
 }

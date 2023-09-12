@@ -69,7 +69,7 @@ window.addEventListener( 'load', () => {
 				player.classList.add( 'is-loaded' );
 
 				// Adjust layouts
-				document.getElementById("webamp").children[0].children[0].childNodes.forEach(elem => {
+				document.querySelector('#webamp div div').childNodes.forEach(elem => {
 					elem.style.transform = "";
 					elem.style.position = "";
 				})
@@ -85,6 +85,17 @@ window.addEventListener( 'load', () => {
 								}
 							}
 						}
+
+						if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+							if (mutation.target.style.transform) {
+								// console.log(`'transform' property changed to: ${mutation.target.style.transform}`);
+								
+								// Forcely clear transform to prevent webamp from shifting
+								document.querySelector('#webamp div div').childNodes.forEach(elem => {
+									elem.style.transform = "";
+								})
+							}
+						}
 					}
 				}
 
@@ -93,6 +104,8 @@ window.addEventListener( 'load', () => {
 
 				// Start observing the DOM
 				observer.observe(document, { childList: true, subtree: true });
+
+				observer.observe(document.querySelector('#webamp div div div'), { attributes: true, attributeFilter: ['style'] });
 
 			}, 1000 );
 		}

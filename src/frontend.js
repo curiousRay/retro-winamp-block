@@ -68,10 +68,28 @@ window.addEventListener( 'load', () => {
 			setTimeout( () => {
 				player.classList.add( 'is-loaded' );
 
+				
+
+				// 取消鼠标模式下的点击拖动功能
+					document.querySelectorAll("div.draggable").forEach(elem => {
+						elem.classList.remove("draggable");
+					})
+
 				// Adjust layouts
+				var first_match = document.querySelector('#webamp div div').childNodes[0].style.transform.match(/, (.*?)px/);
+				var initNum = parseFloat(first_match[1]); //获取第一个窗口的y坐标
+
 				document.querySelector('#webamp div div').childNodes.forEach(elem => {
-					elem.style.transform = "";
-					elem.style.position = "";
+					
+					 //x方向对齐
+					 elem.style.transform = elem.style.transform.replace(/\([^,]+,/, '(' + '0px' + ','); //x坐标一律重置为0
+					 
+					//y方向对齐
+					 var match = elem.style.transform.match(/, (.*?)px/);
+					 var extractedNum = parseFloat(match[1]); //获取每个窗口的y坐标
+
+					 var newNum = (extractedNum - initNum).toString()+'px'; //计算每个窗口新的y坐标
+					 elem.style.transform = elem.style.transform .replace(/,(.*?\))/, ', ' + newNum + ')'); //执行更新y坐标
 				})
 
 				// Callback function to handle mutations in the DOM
@@ -88,13 +106,18 @@ window.addEventListener( 'load', () => {
 
 						if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
 							if (mutation.target.style.transform) {
-								// console.log(`'transform' property changed to: ${mutation.target.style.transform}`);
+								console.log(`'transform' property changed to: ${mutation.target.style.transform}`);
 								
 								// Forcely clear transform to prevent webamp from shifting
 								document.querySelector('#webamp div div').childNodes.forEach(elem => {
+									console.log("被更新的tramsform"+elem.style.transform);
 									elem.style.transform = "";
 								})
 							}
+						}
+
+						if (mutation.type === 'attributes' && mutation.attributeName === 'draggable') {
+							console.log("球球别再下沉了");
 						}
 					}
 				}
@@ -106,6 +129,8 @@ window.addEventListener( 'load', () => {
 				observer.observe(document, { childList: true, subtree: true });
 
 				observer.observe(document.querySelector('#webamp div div div'), { attributes: true, attributeFilter: ['style'] });
+
+				observer.observe(document.querySelector('#webamp div div div'), { attributes: true, attributeFilter: ['draggable'] });
 
 			}, 1000 );
 		}

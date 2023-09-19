@@ -25,6 +25,11 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import { Platform, useMemo, useState } from '@wordpress/element';
 import { createBlobURL } from '@wordpress/blob';
 
+import {
+  __experimentalToggleGroupControl as ToggleGroupControl,
+  __experimentalToggleGroupControlOption as ToggleGroupControlOption,
+} from '@wordpress/components';
+
 /**
  * Internal dependencies
  */
@@ -58,7 +63,8 @@ function Edit( props ) {
 		noticeUI,
 		setAttributes,
 	} = props;
-	const { currentSkin, preview } = attributes;
+	//lihao: const { currentSkin, preview } = attributes;
+	const { currentSkin, preview, currentPos } = attributes;
 	const [ useCustomUrl, setUseCustomUrl ] = useState( false );
 
 	if ( preview && previewImg ) {
@@ -280,6 +286,48 @@ function Edit( props ) {
 						checked={ useCustomUrl }
 						onChange={ () => setUseCustomUrl( ! useCustomUrl ) }
 					/>
+				</PanelBody>
+				<PanelBody title={ __( 'Winamp Player Windows', 'winamp-block' )}>
+
+				<label class="components-base-control__label">MAIN WINDOW</label>
+				<p>Main window is forcely displayed by default.</p>
+
+					<ToggleGroupControl
+						isBlock
+						label="EQUALIZER"
+						onChange={(currentPos) => setAttributes({ currentPos })}
+						value={ currentPos }
+					>
+						<ToggleGroupControlOption label="Top" value="1" />
+						<ToggleGroupControlOption label="Middle" value="2" />
+						<ToggleGroupControlOption label="Bottom" value="3" />
+						<ToggleGroupControlOption label="Hide" value="0" />
+					</ToggleGroupControl>
+
+					<ToggleGroupControl
+						isBlock
+						label="PLAYLIST"
+						onChange={function noRefCheck(){}}
+						value="2"
+					>
+						<ToggleGroupControlOption label="Top" value="1" />
+						<ToggleGroupControlOption label="Middle" value="2" />
+						<ToggleGroupControlOption label="Bottom" value="3" />
+						<ToggleGroupControlOption label="Hide" value="0" />
+					</ToggleGroupControl>
+
+					<ToggleGroupControl
+						isBlock
+						label="MILKDROP"
+						onChange={function noRefCheck(){}}
+						value="3"
+					>
+						<ToggleGroupControlOption label="Top" value="1" />
+						<ToggleGroupControlOption label="Middle" value="2" />
+						<ToggleGroupControlOption label="Bottom" value="3" />
+						<ToggleGroupControlOption label="Hide" value="0" />
+					</ToggleGroupControl>
+
 				</PanelBody>
 			</InspectorControls>
 			{ noticeUI }

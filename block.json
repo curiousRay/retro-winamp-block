@@ -35,6 +35,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"currentPos": {
+			"type": "string",
+			"default": "1"
+		},
 		"preview": {
 			"type": "boolean",
 			"default": false

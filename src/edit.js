@@ -295,7 +295,12 @@ function Edit( props ) {
 					<ToggleGroupControl
 						isBlock
 						label="EQUALIZER"
-						onChange={(currentPos) => setAttributes({ currentPos })}
+						onChange={(currentPos) => {
+								setAttributes({ currentPos });
+								
+								
+							}
+						}
 						value={ currentPos }
 					>
 						<ToggleGroupControlOption label="Top" value="1" />

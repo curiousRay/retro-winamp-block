@@ -56,6 +56,10 @@ window.addEventListener( 'load', () => {
 	}
 
 	// Render the player
+
+	//在渲染前通过自定义attributes, 修改设置
+	//milkdropOptions.__initialWindowLayout.milkdrop = { position: { x: 0, y: 576 }, size: [ 0, 3 ] };
+	// 考虑如何隐藏窗口
 	new Webamp( { ...options, ...milkdropOptions } ).renderWhenReady( container ).then( () => {
 		
 		// Move webamp from body root to our container

@@ -42,6 +42,11 @@ window.addEventListener( 'load', () => {
 	}
 
 	const skin = container.dataset.skin || '';
+	if (container.dataset.windowlayout === '')
+	{
+		// set default layout
+		container.dataset.windowlayout = '123';
+	}
 
 	// Add the custom skin if it was set
 	if ( skin ) {

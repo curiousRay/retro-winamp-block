@@ -35,9 +35,17 @@
 			"type": "string",
 			"default": ""
 		},
-		"currentPos": {
+		"currentPosEqu": {
 			"type": "string",
 			"default": "1"
+		},
+		"currentPosList": {
+			"type": "string",
+			"default": "2"
+		},
+		"currentPosMilkdrop": {
+			"type": "string",
+			"default": "3"
 		},
 		"preview": {
 			"type": "boolean",

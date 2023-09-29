@@ -22,6 +22,7 @@ export default function save( { attributes } ) {
 		<figure
 			{ ...useBlockProps.save() }
 			data-skin={ attributes.currentSkin }
+			data-windowlayout={ attributes.currentPosEqu+attributes.currentPosList+attributes.currentPosMilkdrop }
 		>
 			<InnerBlocks.Content />
 		</figure>

@@ -64,7 +64,7 @@ function Edit( props ) {
 		setAttributes,
 	} = props;
 	//lihao: const { currentSkin, preview } = attributes;
-	const { currentSkin, preview, currentPos } = attributes;
+	const { currentSkin, preview, currentPosEqu, currentPosList, currentPosMilkdrop } = attributes;
 	const [ useCustomUrl, setUseCustomUrl ] = useState( false );
 
 	if ( preview && previewImg ) {
@@ -289,19 +289,16 @@ function Edit( props ) {
 				</PanelBody>
 				<PanelBody title={ __( 'Winamp Player Windows', 'winamp-block' )}>
 
-				<label class="components-base-control__label">MAIN WINDOW</label>
 				<p>Main window is forcely displayed by default.</p>
 
 					<ToggleGroupControl
 						isBlock
 						label="EQUALIZER"
-						onChange={(currentPos) => {
-								setAttributes({ currentPos });
-								
-								
+						onChange={(currentPosEqu) => {
+								setAttributes({ currentPosEqu });
 							}
 						}
-						value={ currentPos }
+						value={ currentPosEqu }
 					>
 						<ToggleGroupControlOption label="Top" value="1" />
 						<ToggleGroupControlOption label="Middle" value="2" />
@@ -312,8 +309,11 @@ function Edit( props ) {
 					<ToggleGroupControl
 						isBlock
 						label="PLAYLIST"
-						onChange={function noRefCheck(){}}
-						value="2"
+						onChange={(currentPosList) => {
+							setAttributes({ currentPosList });
+						}
+					}
+					value={ currentPosList }
 					>
 						<ToggleGroupControlOption label="Top" value="1" />
 						<ToggleGroupControlOption label="Middle" value="2" />
@@ -324,8 +324,11 @@ function Edit( props ) {
 					<ToggleGroupControl
 						isBlock
 						label="MILKDROP"
-						onChange={function noRefCheck(){}}
-						value="3"
+						onChange={(currentPosMilkdrop) => {
+							setAttributes({ currentPosMilkdrop });
+						}
+					}
+					value={ currentPosMilkdrop }
 					>
 						<ToggleGroupControlOption label="Top" value="1" />
 						<ToggleGroupControlOption label="Middle" value="2" />

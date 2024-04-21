@@ -14,6 +14,8 @@ import {
 	TextControl,
 	withNotices,
 	ToggleControl,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 } from '@wordpress/components';
 import {
 	useBlockProps,
@@ -57,7 +59,7 @@ function Edit( props ) {
 		noticeUI,
 		setAttributes,
 	} = props;
-	const { currentSkin, preview } = attributes;
+	const { currentSkin, preview, currentPosEqu, currentPosList, currentPosMilkdrop } = attributes;
 	const [ useCustomUrl, setUseCustomUrl ] = useState( false );
 
 	const blockProps = useBlockProps(); // eslint-disable-line react-hooks/rules-of-hooks
@@ -273,6 +275,48 @@ function Edit( props ) {
 						checked={ preview }
 						onChange={ () => setAttributes( { preview: ! preview } ) }
 					/>
+					<ToggleGroupControl
+						label="EQUALIZER"
+						onChange={(currentPosEqu) => {
+								setAttributes({ currentPosEqu });
+								console.log("currentPosEqu: " + currentPosEqu.toString());
+							}
+						}
+						value={ currentPosEqu }
+					>
+						<ToggleGroupControlOption label="Top" value="1" />
+						<ToggleGroupControlOption label="Middle" value="2" />
+						<ToggleGroupControlOption label="Bottom" value="3" />
+						<ToggleGroupControlOption label="Hide" value="0" />
+					</ToggleGroupControl>
+					<ToggleGroupControl
+						label="PLAYLIST"
+						onChange={(currentPosList) => {
+							setAttributes({ currentPosList });
+							console.log("currentPosList: " + currentPosList.toString());
+							}
+						}
+						value={ currentPosList }
+					>
+						<ToggleGroupControlOption label="Top" value="1" />
+						<ToggleGroupControlOption label="Middle" value="2" />
+						<ToggleGroupControlOption label="Bottom" value="3" />
+						<ToggleGroupControlOption label="Hide" value="0" />
+					</ToggleGroupControl>
+					<ToggleGroupControl
+						label="MILKDROP"
+						onChange={(currentPosMilkdrop) => {
+							setAttributes({ currentPosMilkdrop });
+							console.log("currentPosMilkdrop: " + currentPosMilkdrop.toString());
+							}
+						}
+						value={ currentPosMilkdrop }
+					>
+						<ToggleGroupControlOption label="Top" value="1" />
+						<ToggleGroupControlOption label="Middle" value="2" />
+						<ToggleGroupControlOption label="Bottom" value="3" />
+						<ToggleGroupControlOption label="Hide" value="0" />
+					</ToggleGroupControl>
 				</PanelBody>
 			</InspectorControls>
 			{ noticeUI }

@@ -1,0 +1,30 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-tenup-winamp-block {
+  border: 1px dotted #f00;
+}
+
+.preview-wrapper {
+  margin-bottom: 15px;
+}
+.preview-wrapper .winamp-radio-wrapper [type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.preview-wrapper .winamp-radio-wrapper [type=radio] + img {
+  cursor: pointer;
+  margin: 0 2px;
+}
+.preview-wrapper .winamp-radio-wrapper [type=radio]:checked + img {
+  outline: 2px solid var(--wp-admin-theme-color);
+}
+
+/* Prevent overflow of menu elements */
+#webamp .playlist-menu {
+  overflow: hidden;
+}/*# sourceMappingURL=editor.css.map */

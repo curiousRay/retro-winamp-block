@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-tenup-winamp-block {
+  background-color: transparent;
+  color: #aaa;
+  padding: 2px;
+  min-height: 350px;
+}
+.wp-block-tenup-winamp-block audio {
+  display: none;
+}
+
+.editor-styles-wrapper .wp-block-tenup-winamp-block audio {
+  display: block;
+}
+
+#webamp:not(.is-loaded) {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+}/*# sourceMappingURL=style.css.map */

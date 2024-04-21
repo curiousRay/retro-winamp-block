@@ -61,6 +61,20 @@ window.addEventListener( 'load', () => {
 		.then( () => {
 			const player = document.getElementById( 'webamp' );
 
+			const block = document.querySelector(".wp-block-tenup-winamp-block")
+			var posEqu = block.getAttribute("data-pos-equ");
+			console.log("posEqu is: "+posEqu);
+			var posList = block.getAttribute("data-pos-list");
+			console.log("posList is: "+posList);
+			var posMilkdrop = block.getAttribute("data-pos-milkdrop");
+			console.log("posMilkdrop is: "+posMilkdrop);
+
+			if (block.closest(".widget")) {
+				console.log("Sidebar player");
+			} else {
+				console.log("Post/Page player");
+			}
+
 			// Add is loaded class after artifical delay to reduce page jank
 			if ( player ) {
 				setTimeout( () => {

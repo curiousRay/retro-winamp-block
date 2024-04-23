@@ -23,7 +23,7 @@ export default function save( { attributes } ) {
 			{ ...useBlockProps.save() }
 			data-skin={ attributes.currentSkin }
 			data-pos-equ={ attributes.currentPosEqu }
-			data-pos-list={ attributes.currentPosEqu }
+			data-pos-list={ attributes.currentPosList }
 			data-pos-milkdrop={ attributes.currentPosMilkdrop }
 		>
 			<InnerBlocks.Content />

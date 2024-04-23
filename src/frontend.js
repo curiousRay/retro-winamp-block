@@ -71,8 +71,54 @@ window.addEventListener( 'load', () => {
 
 			if (block.closest(".widget")) {
 				console.log("Sidebar player");
+
 			} else {
 				console.log("Post/Page player");
+
+				// This is a hack to move the UI elements into the correct position. The
+				// Webamp library tries to center the player in the window, but we want it
+				// to be tucked neatly in the block.
+				const mapping = {
+					0: 'translate( 0px, 0px )',
+					1: 'translate( 0px, 232px )',
+					2: 'translate( 0px, 116px )',
+					3: 'translate( 275px, 0px )',
+				}
+				const webAmpUI = document.querySelectorAll( '#webamp > div > div > div' );
+
+				switch (posEqu) {
+					
+					case "0": 
+						document.querySelectorAll( '#webamp > div > div > div' )[2].querySelector( 'div' ).style.display = "none";
+						//webAmpUI[1].style.display = "none";
+						console.log("隐藏了1：");
+						//console.log(webAmpUI[1]);
+					break;
+					
+				}
+				
+				switch (posList) {
+					case "0": 
+						document.querySelectorAll( '#webamp > div > div > div' )[1].querySelector( 'div > div' ).style.display = "none";
+						//webAmpUI[2].style.display = "none";
+						console.log("隐藏了2：");
+						//console.log(webAmpUI[2]);
+					break;
+				}
+
+				switch (posMilkdrop) {
+					case "0": 
+						document.querySelectorAll( '#webamp > div > div > div' )[3].querySelector( 'div > div' ).style.display = "none";
+						//webAmpUI[3].style.display = "none";
+						console.log("隐藏了3：");
+						//console.log(webAmpUI[3]);
+					break;
+				}
+				
+				webAmpUI.forEach( ( ui, i ) => {
+				//	ui.style.transform = mapping[ i ];
+				} );
+
 			}
 
 			// Add is loaded class after artifical delay to reduce page jank

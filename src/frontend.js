@@ -75,6 +75,7 @@ window.addEventListener( 'load', () => {
 			} else {
 				console.log("Post/Page player");
 
+
 				// This is a hack to move the UI elements into the correct position. The
 				// Webamp library tries to center the player in the window, but we want it
 				// to be tucked neatly in the block.
@@ -85,33 +86,54 @@ window.addEventListener( 'load', () => {
 					3: 'translate( 275px, 0px )',
 				}
 				const webAmpUI = document.querySelectorAll( '#webamp > div > div > div' );
+				const webAmpUI_Equ = document.querySelectorAll( '#webamp > div > div > div' )[2].querySelector( 'div' );
+				const webAmpUI_List = document.querySelectorAll( '#webamp > div > div > div' )[1].querySelector( 'div > div' );
+				const webAmpUI_Milkdrop = document.querySelectorAll( '#webamp > div > div > div' )[3].querySelector( 'div > div' );
 
 				switch (posEqu) {
 					
 					case "0": 
-						document.querySelectorAll( '#webamp > div > div > div' )[2].querySelector( 'div' ).style.display = "none";
-						//webAmpUI[1].style.display = "none";
-						console.log("隐藏了1：");
-						//console.log(webAmpUI[1]);
-					break;
+						webAmpUI_Equ.style.display = "none";
+
+						if ( posList == "0" ) {
+							webAmpUI_List.style.display = "none";
+						} else {
+							// playlist shall be moved upwards, equalizer is hidden
+							webAmpUI_List.style.transform = "translate(0, -116px)";
+						}
+						break;
+
+					case "1":
+						if ( posList == "0" ) {
+							webAmpUI_List.style.display = "none";
+						}
+						break;
+
+					case "2":
+						if ( posList == "0" ) {
+							webAmpUI_List.style.display = "none";
+						} else if ( posList == "1" ) {
+							// playlist and equalizer are shown, but place swapped
+							webAmpUI_List.style.transform = "translate(0, -116px)";
+							webAmpUI_Equ.style.transform = "translate(0, 145px)";
+						}
+						break;
+
+					case "3":
+						if ( posList == "0" ) {
+							webAmpUI_List.style.display = "none";
+						} else if ( posList == "1" || posList == "2" ) {
+							// playlist and equalizer are shown, but place swapped
+							webAmpUI_List.style.transform = "translate(0, -116px)";
+							webAmpUI_Equ.style.transform = "translate(0, 145px)";
+						}
+						break;
 					
 				}
-				
-				switch (posList) {
-					case "0": 
-						document.querySelectorAll( '#webamp > div > div > div' )[1].querySelector( 'div > div' ).style.display = "none";
-						//webAmpUI[2].style.display = "none";
-						console.log("隐藏了2：");
-						//console.log(webAmpUI[2]);
-					break;
-				}
 
-				switch (posMilkdrop) {
+				switch ( posMilkdrop ) {
 					case "0": 
-						document.querySelectorAll( '#webamp > div > div > div' )[3].querySelector( 'div > div' ).style.display = "none";
-						//webAmpUI[3].style.display = "none";
-						console.log("隐藏了3：");
-						//console.log(webAmpUI[3]);
+						webAmpUI_Milkdrop.style.display = "none";
 					break;
 				}
 				

@@ -71,6 +71,38 @@ window.addEventListener( 'load', () => {
 
 			if (block.closest(".widget")) {
 				console.log("Sidebar player");
+				let equ = posEqu;
+				let list = posList;
+				let milk = posMilkdrop; 
+				let res = [];
+
+				let mat = [[0,0,0], [0,0,0], [0,0,0]];
+				if (equ != 0) { mat[0][equ-1] = 1; }
+				if (list != 0) { mat[1][list-1] = 1; }
+				if (milk != 0) { mat[2][milk-1] = 1; }
+
+				for (let col = 0; col < 3; col++) {
+					for (let row = 0; row < 3; row++) {
+						if (mat[row][col] == 1 ) {
+							res.push(row)
+						}
+					}
+				}
+
+				let res_text = []
+				for (let elem = 0;elem < 3; elem++) {
+					if(res[elem] + 1 == 1) {
+						res_text.push("Equ")
+					}
+					if(res[elem] + 1 == 2) {
+						res_text.push("List")
+					}if(res[elem] + 1 == 3) {
+						res_text.push("Milk")
+					}
+				}
+				console.log("Align order:")
+				console.log(res_text)
+
 
 			} else {
 				console.log("Post/Page player");

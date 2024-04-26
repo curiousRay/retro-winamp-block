@@ -120,7 +120,7 @@ window.addEventListener( 'load', () => {
 								switch (res_text[2]) {
 									case "Milk": 
 										webAmpUI_Milkdrop.style.display = "flex";
-										webAmpUI_Milkdrop.style.transform = "translate(-275px, 376px)";
+										webAmpUI_Milkdrop.style.transform = "translate(-275px, 377px)";
 										webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
 										webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 										break;
@@ -153,7 +153,7 @@ window.addEventListener( 'load', () => {
 								switch (res_text[2]) {
 									case "Milk":
 										webAmpUI_Milkdrop.style.display = "flex";
-										webAmpUI_Milkdrop.style.transform = "translate(-275px, 376px)";
+										webAmpUI_Milkdrop.style.transform = "translate(-275px, 377px)";
 										webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
 										webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 										break;

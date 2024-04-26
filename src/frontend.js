@@ -149,7 +149,7 @@ window.addEventListener( 'load', () => {
 						switch (res_text[1]) {
 							case "Equ":
 								webAmpUI_Equ.style.display = "flex";
-								webAmpUI_Equ.style.transform = "translate(0, 144px)";
+								webAmpUI_Equ.style.transform = "translate(0, 145px)";
 								switch (res_text[2]) {
 									case "Milk":
 										webAmpUI_Milkdrop.style.display = "flex";
@@ -168,7 +168,7 @@ window.addEventListener( 'load', () => {
 								switch (res_text[2]) {
 									case "Equ":
 										webAmpUI_Equ.style.display = "flex";
-										webAmpUI_Equ.style.transform = "translate(0, 382px)"; // 382 = 144+238
+										webAmpUI_Equ.style.transform = "translate(0, 383px)"; // 383 = 145+238
 										break;
 									default: break; //res_text has only two elems
 								}
@@ -199,7 +199,7 @@ window.addEventListener( 'load', () => {
 								switch (res_text[2]) {
 									case "Equ":
 										webAmpUI_Equ.style.display = "flex";
-										webAmpUI_Equ.style.transform = "translate(0, 382px)"; // 382=144+238
+										webAmpUI_Equ.style.transform = "translate(0, 383px)"; // 383=145+238
 										break;
 									default: break; //res_text has only two elems
 								}
@@ -256,7 +256,7 @@ window.addEventListener( 'load', () => {
 						} else if ( posList == "1" ) {
 							// playlist and equalizer are shown, but place swapped
 							webAmpUI_List.style.transform = "translate(0, -116px)";
-							webAmpUI_Equ.style.transform = "translate(0, 116px)";
+							webAmpUI_Equ.style.transform = "translate(0, 145px)";
 						}
 						break;
 
@@ -266,7 +266,7 @@ window.addEventListener( 'load', () => {
 						} else if ( posList == "1" || posList == "2" ) {
 							// playlist and equalizer are shown, but place swapped
 							webAmpUI_List.style.transform = "translate(0, -116px)";
-							webAmpUI_Equ.style.transform = "translate(0, 116px)";
+							webAmpUI_Equ.style.transform = "translate(0, 145px)";
 						}
 						break;
 					

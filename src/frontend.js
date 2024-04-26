@@ -122,7 +122,7 @@ window.addEventListener( 'load', () => {
 										webAmpUI_Milkdrop.style.display = "flex";
 										webAmpUI_Milkdrop.style.transform = "translate(-275px, 376px)";
 										webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
-										webAmpUI_Milkdrop.querySelector("div").style.height = "290px";
+										webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 										break;
 									default: break; //res_text has only two elems
 								}
@@ -131,11 +131,11 @@ window.addEventListener( 'load', () => {
 								webAmpUI_Milkdrop.style.display = "flex";
 								webAmpUI_Milkdrop.style.transform = "translate(-275px, 232px)";
 								webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
-								webAmpUI_Milkdrop.querySelector("div").style.height = "290px";
+								webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 								switch (res_text[2]) {
 									case "List":
 										webAmpUI_List.style.display = "flex";
-										webAmpUI_List.style.transform = "translate(0px, 290px)"
+										webAmpUI_List.style.transform = "translate(0px, 238px)"
 										break;
 									default: break; //res_text has only two elems
 								}
@@ -149,27 +149,26 @@ window.addEventListener( 'load', () => {
 						switch (res_text[1]) {
 							case "Equ":
 								webAmpUI_Equ.style.display = "flex";
-								webAmpUI_Equ.style.transform = "translate(0, 116px)";
+								webAmpUI_Equ.style.transform = "translate(0, 144px)";
 								switch (res_text[2]) {
 									case "Milk":
 										webAmpUI_Milkdrop.style.display = "flex";
 										webAmpUI_Milkdrop.style.transform = "translate(-275px, 376px)";
 										webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
-										webAmpUI_Milkdrop.querySelector("div").style.height = "290px";
+										webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 										break;
 									default: break; //res_text has only two elems
 								}
 								break;
 							case "Milk":
-								///
 								webAmpUI_Milkdrop.style.display = "flex";
 								webAmpUI_Milkdrop.style.transform = "translate(-275px, 260px)"
 								webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
-								webAmpUI_Milkdrop.querySelector("div").style.height = "290px";
+								webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 								switch (res_text[2]) {
 									case "Equ":
 										webAmpUI_Equ.style.display = "flex";
-										webAmpUI_Equ.style.transform = "translate(0, 434px)"; // 434 = 144+290
+										webAmpUI_Equ.style.transform = "translate(0, 382px)"; // 382 = 144+238
 										break;
 									default: break; //res_text has only two elems
 								}
@@ -181,28 +180,26 @@ window.addEventListener( 'load', () => {
 						webAmpUI_Milkdrop.style.display = "flex";
 						webAmpUI_Milkdrop.style.transform = "translate(-275px, 116px)";
 						webAmpUI_Milkdrop.querySelector("div").style.width = "275px";
-						webAmpUI_Milkdrop.querySelector("div").style.height = "290px";
+						webAmpUI_Milkdrop.querySelector("div").style.height = "238px";
 						switch (res_text[1]) {
 							case "Equ":
-								///	
 								webAmpUI_Equ.style.display = "flex";
-								webAmpUI_Equ.style.transform = "translate(0, 290px)";
+								webAmpUI_Equ.style.transform = "translate(0, 238px)";
 								switch (res_text[2]) {
 									case "List":
 										webAmpUI_List.style.display = "flex";
-										webAmpUI_List.style.transform = "translate(0, 290px)";
+										webAmpUI_List.style.transform = "translate(0, 238px)";
 										break;
 									default: break; //res_text has only two elems
 								}
 								break;
 							case "List":
-								///
 								webAmpUI_List.style.display = "flex";
-								webAmpUI_List.style.transform = "translate(0, 174px)"; //174=-116+290
+								webAmpUI_List.style.transform = "translate(0, 122px)"; //122=-116+238
 								switch (res_text[2]) {
 									case "Equ":
-										webAmpUI_Equ.style.display = "display";
-										webAmpUI_Equ.style.transform = "translate(0, 434px)"; // 434=144+290
+										webAmpUI_Equ.style.display = "flex";
+										webAmpUI_Equ.style.transform = "translate(0, 382px)"; // 382=144+238
 										break;
 									default: break; //res_text has only two elems
 								}

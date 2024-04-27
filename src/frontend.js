@@ -238,21 +238,33 @@ window.addEventListener( 'load', () => {
 
 						if ( posList == "0" ) {
 							webAmpUI_List.style.display = "none";
+							if ( posMilkdrop != "0" ) {
+								webAmpUI_Milkdrop.querySelector("div").style.width = "136px";
+								webAmpUI_Milkdrop.querySelector("div").style.height = "116px";
+								webAmpUI_Milkdrop.querySelector("div > .gen-top-left").style.width = "20px";
+								webAmpUI_Milkdrop.querySelector("div > .gen-top-right").style.width = "20px";
+							}
 						} else {
 							// playlist shall be moved upwards, equalizer is hidden
 							webAmpUI_List.style.transform = "translate(0, -116px)";
+							webAmpUI_Milkdrop.querySelector("div").style.width = "304px";
+							webAmpUI_Milkdrop.querySelector("div").style.height = "261px";
 						}
 						break;
 
 					case "1":
 						if ( posList == "0" ) {
 							webAmpUI_List.style.display = "none";
+							webAmpUI_Milkdrop.querySelector("div").style.width = "268px";
+							webAmpUI_Milkdrop.querySelector("div").style.height = "232px";
 						}
 						break;
 
 					case "2":
 						if ( posList == "0" ) {
 							webAmpUI_List.style.display = "none";
+							webAmpUI_Milkdrop.querySelector("div").style.width = "268px";
+							webAmpUI_Milkdrop.querySelector("div").style.height = "232px";
 						} else if ( posList == "1" ) {
 							// playlist and equalizer are shown, but place swapped
 							webAmpUI_List.style.transform = "translate(0, -116px)";
@@ -263,6 +275,8 @@ window.addEventListener( 'load', () => {
 					case "3":
 						if ( posList == "0" ) {
 							webAmpUI_List.style.display = "none";
+							webAmpUI_Milkdrop.querySelector("div").style.width = "268px";
+							webAmpUI_Milkdrop.querySelector("div").style.height = "232px";
 						} else if ( posList == "1" || posList == "2" ) {
 							// playlist and equalizer are shown, but place swapped
 							webAmpUI_List.style.transform = "translate(0, -116px)";

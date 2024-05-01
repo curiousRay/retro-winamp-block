@@ -23,4 +23,11 @@ export const milkdropOptions = {
 	},
 };
 
+milkdropOptions.__initialWindowLayout = {
+	main: { position: { x: 0, y: 0 } },
+	equalizer: { },
+	playlist: { position: { x: 0, y: 232 }, size: [ 0, 1 ] },
+	milkdrop: { position: { x: 275, y: 0 }, size: [ 7, 9 ] },
+};
+
 export default milkdropOptions;

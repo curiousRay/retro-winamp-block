@@ -22,9 +22,9 @@ export default function save( { attributes } ) {
 		<figure
 			{ ...useBlockProps.save() }
 			data-skin={ attributes.currentSkin }
-			data-pos-equ={ attributes.currentPosEqu }
-			data-pos-list={ attributes.currentPosList }
-			data-pos-milkdrop={ attributes.currentPosMilkdrop }
+			data-posequ={ attributes.currentPosEqu }
+			data-poslist={ attributes.currentPosList }
+			data-posmilkdrop={ attributes.currentPosMilkdrop }
 		>
 			<InnerBlocks.Content />
 		</figure>

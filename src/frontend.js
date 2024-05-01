@@ -60,7 +60,7 @@ window.addEventListener( 'load', () => {
 		.renderWhenReady( container )
 		.then( () => {
 			const player = document.getElementById( 'webamp' );
-
+/*
 			const block = document.querySelector(".wp-block-tenup-winamp-block")
 			var posEqu = block.getAttribute("data-pos-equ");
 			var posList = block.getAttribute("data-pos-list");
@@ -260,6 +260,7 @@ window.addEventListener( 'load', () => {
 				}
 
 			}
+			*/
 
 			// Add is loaded class after artifical delay to reduce page jank
 			if ( player ) {

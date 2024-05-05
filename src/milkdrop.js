@@ -1,5 +1,5 @@
 import butterchurnPresets from 'butterchurn-presets';
-import { useSelect } from '@wordpress/data';
+
 export const milkdropOptions = {
 	__butterchurnOptions: {
 		butterchurnOpen: true,
@@ -23,21 +23,7 @@ export const milkdropOptions = {
 	},
 };
 
-
-//const currentPosEqu = container.dataset.currentPosEqu || "1";
-
-
-//const block = document.querySelector(".wp-block-tenup-winamp-block")
-
-
-//var posEqu = block.getAttribute("data-posEqu");
-//var posList = block.getAttribute("data-posList");
-//var posMilkdrop = block.getAttribute("data-posMilkdrop");
-
-// todo: 如果在插件配置选择Equ为隐藏，则最终显示的插件仍然有Equ===使用css隐藏掉.
-
 const block = document.querySelector( '.wp-block-tenup-winamp-block' );
-
 
 var posEqu = document.querySelector(".wp-block-tenup-winamp-block")?.dataset.posequ || "1";
 var posList = document.querySelector(".wp-block-tenup-winamp-block")?.dataset.poslist || "2";
@@ -53,13 +39,11 @@ var options = {};
 options.main = { position: { x: 0, y: 0 } }; // main windows is forcely displayed
 var y_anchor = 116;
 
-//milkdropOptions.__initialWindowLayout.main.position = {x: 10, y: 10};
-
 let res_text = [];
 let mat = [[0,0,0], [0,0,0], [0,0,0]];
-if (posEqu != 0) { mat[0][posEqu - 1] = 1; } else { options.equalizer = {}; }
-if (posList != 0) { mat[1][posList - 1] = 1; } else { options.playlist = {}; }
-if (posMilkdrop != 0) { mat[2][posMilkdrop - 1] = 1; } else { options.milkdrop = {}; }
+if (posEqu != 0) { mat[0][posEqu - 1] = 1; } 
+if (posList != 0) { mat[1][posList - 1] = 1; } 
+if (posMilkdrop != 0) { mat[2][posMilkdrop - 1] = 1; }
 
 for (let col = 0; col < 3; col++) {
 	for (let row = 0; row < 3; row++) {
@@ -73,7 +57,7 @@ for (let col = 0; col < 3; col++) {
 	}
 }
 
-console.log(res_text);
+//console.log(res_text);
 
 if (block) {
 	if (block.closest(".widget")) {
@@ -103,21 +87,33 @@ if (block) {
 				case "Equ":
 					options.equalizer = { position: { x: 0, y: y_anchor } };
 					y_anchor += 116;
-					console.log("TEST")
 					break;
 				case "List":
 					options.playlist = { position: { x: 0, y: y_anchor }, size: [ 0, 1 ] };
 					y_anchor += 144;
-					console.log("TEST")
 					break;
 				case "Milkdrop":
-					options.milkdrop = { position: { x: 275, y: 0 }, size: [ 0, 1 ] };
-					// 仅equ---size:[0,4]
-					// 仅list---size:[]
-					// equ&list---size:[5,9]
-					// none---size:[]
-					y_anchor += 0;
-					console.log("TEST")
+					var milkdrop_size = [];
+					var milkdrop_pos = {};
+					if (posEqu != 0 && posList == 0) { 
+						milkdrop_size = [0, 4];
+						milkdrop_pos = {x: 275, y: 0};
+						y_anchor += 0;
+					}
+					if (posEqu == 0 && posList != 0) { 
+						milkdrop_pos = {x: 275, y: 0};
+						y_anchor += 0;
+					}
+					if (posEqu != 0 && posList != 0) { 
+						milkdrop_pos = {x: 275, y: 0};
+						y_anchor += 0;
+					}
+					if (posEqu == 0 && posList == 0) {
+						milkdrop_size = [0, 4];
+						milkdrop_pos = {x: 0, y: y_anchor};
+						y_anchor += 232;
+					}
+					options.milkdrop = { position: milkdrop_pos, size: milkdrop_size };
 					break;
 			}
 		});
@@ -125,7 +121,6 @@ if (block) {
 	}
 	
 }
-console.log(options)
 milkdropOptions.__initialWindowLayout = options;
 
 export default milkdropOptions;

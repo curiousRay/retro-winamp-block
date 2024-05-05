@@ -61,12 +61,11 @@ window.addEventListener( 'load', () => {
 		.then( () => {
 			const player = document.getElementById( 'webamp' );
 
-			const block = document.querySelector(".wp-block-tenup-winamp-block")
-			if (block) {
-				var posEqu = document.querySelector(".wp-block-tenup-winamp-block")?.dataset.posequ || "1";
-				var posList = document.querySelector(".wp-block-tenup-winamp-block")?.dataset.poslist || "2";
-				var posMilkdrop = document.querySelector(".wp-block-tenup-winamp-block")?.dataset.posmilkdrop || "3";
-
+			const block = document.querySelector(".wp-block-tenup-winamp-block");
+			if ( block ) {
+				var posEqu = block?.dataset.posequ || "1";
+				var posList = block?.dataset.poslist || "2";
+				var posMilkdrop = block?.dataset.posmilkdrop || "3";
 				const webAmpUI_Equ = document.querySelectorAll( '#webamp > div > div > div' )[2].querySelector( 'div' );
 				const webAmpUI_List = document.querySelectorAll( '#webamp > div > div > div' )[1].querySelector( 'div > div' );
 				const webAmpUI_Milkdrop = document.querySelectorAll( '#webamp > div > div > div' )[3].querySelector( 'div > div' );

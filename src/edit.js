@@ -276,46 +276,46 @@ function Edit( props ) {
 						onChange={ () => setAttributes( { preview: ! preview } ) }
 					/>
 					<ToggleGroupControl
-						label="EQUALIZER"
+						label={ __( 'EQUALIZER', 'winamp-block' ) }
 						onChange={(currentPosEqu) => {
 								setAttributes({ currentPosEqu });
-								console.log("currentPosEqu: " + currentPosEqu.toString());
+								//console.log("currentPosEqu: " + currentPosEqu.toString());
 							}
 						}
 						value={ currentPosEqu }
 					>
-						<ToggleGroupControlOption label="Top" value="1" />
-						<ToggleGroupControlOption label="Middle" value="2" />
-						<ToggleGroupControlOption label="Bottom" value="3" />
-						<ToggleGroupControlOption label="Hide" value="0" />
+						<ToggleGroupControlOption label={ __( 'Top', 'winamp-block' ) } value="1" />
+						<ToggleGroupControlOption label={ __( 'Middle', 'winamp-block' ) } value="2" />
+						<ToggleGroupControlOption label={ __( 'Bottom', 'winamp-block' ) } value="3" />
+						<ToggleGroupControlOption label={ __( 'Hide', 'winamp-block' ) } value="0" />
 					</ToggleGroupControl>
 					<ToggleGroupControl
-						label="PLAYLIST"
+						label={ __( 'PLAYLIST', 'winamp-block' ) }
 						onChange={(currentPosList) => {
 							setAttributes({ currentPosList });
-							console.log("currentPosList: " + currentPosList.toString());
+							//console.log("currentPosList: " + currentPosList.toString());
 							}
 						}
 						value={ currentPosList }
 					>
-						<ToggleGroupControlOption label="Top" value="1" />
-						<ToggleGroupControlOption label="Middle" value="2" />
-						<ToggleGroupControlOption label="Bottom" value="3" />
-						<ToggleGroupControlOption label="Hide" value="0" />
+						<ToggleGroupControlOption label={ __( 'Top', 'winamp-block' ) } value="1" />
+						<ToggleGroupControlOption label={ __( 'Middle', 'winamp-block' ) } value="2" />
+						<ToggleGroupControlOption label={ __( 'Bottom', 'winamp-block' ) } value="3" />
+						<ToggleGroupControlOption label={ __( 'Hide', 'winamp-block' ) } value="0" />
 					</ToggleGroupControl>
 					<ToggleGroupControl
-						label="MILKDROP"
+						label={ __( 'MILKDROP', 'winamp-block' ) }
 						onChange={(currentPosMilkdrop) => {
 							setAttributes({ currentPosMilkdrop });
-							console.log("currentPosMilkdrop: " + currentPosMilkdrop.toString());
+							//console.log("currentPosMilkdrop: " + currentPosMilkdrop.toString());
 							}
 						}
 						value={ currentPosMilkdrop }
 					>
-						<ToggleGroupControlOption label="Top" value="1" />
-						<ToggleGroupControlOption label="Middle" value="2" />
-						<ToggleGroupControlOption label="Bottom" value="3" />
-						<ToggleGroupControlOption label="Hide" value="0" />
+						<ToggleGroupControlOption label={ __( 'Top', 'winamp-block' ) } value="1" />
+						<ToggleGroupControlOption label={ __( 'Middle', 'winamp-block' ) } value="2" />
+						<ToggleGroupControlOption label={ __( 'Bottom', 'winamp-block' ) } value="3" />
+						<ToggleGroupControlOption label={ __( 'Hide', 'winamp-block' ) } value="0" />
 					</ToggleGroupControl>
 				</PanelBody>
 			</InspectorControls>

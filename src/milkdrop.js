@@ -33,9 +33,7 @@ var posMilkdrop = block?.dataset.posmilkdrop || "3";
 //console.log("posList: "+posList);
 //console.log("posMilkdrop: "+posMilkdrop);
 
-// window displaying options
-var options = {};
-options.main = { position: { x: 0, y: 0 } }; // main windows is forcely displayed
+milkdropOptions.__initialWindowLayout.main = { position: { x: 0, y: 0 } }; // main windows is forcely displayed
 var y_anchor = 116;
 
 let res_text = [];
@@ -65,15 +63,15 @@ if ( block ) {
 	res_text.forEach(( window_name ) => {
 		switch ( window_name ) {
 			case "Equ":
-				options.equalizer = { position: { x: 0, y: y_anchor } };
+				milkdropOptions.__initialWindowLayout.equalizer = { position: { x: 0, y: y_anchor } };
 				y_anchor += 116;
 				break;
 			case "List":
-				options.playlist = { position: { x: 0, y: y_anchor }, size: [ 0, 1 ] };
+				milkdropOptions.__initialWindowLayout.playlist = { position: { x: 0, y: y_anchor }, size: [ 0, 1 ] };
 				y_anchor += 144;
 				break;
 			case "Milkdrop":
-				options.milkdrop = { position: { x: 0, y: y_anchor }, size: [ 0, 4 ] };
+				milkdropOptions.__initialWindowLayout.milkdrop = { position: { x: 0, y: y_anchor }, size: [ 0, 4 ] };
 				y_anchor += 232;
 				break;
 		}
@@ -84,11 +82,11 @@ if ( block ) {
 		res_text.forEach(( window_name ) => {
 			switch ( window_name ) {
 				case "Equ":
-					options.equalizer = { position: { x: 0, y: y_anchor } };
+					milkdropOptions.__initialWindowLayout.equalizer = { position: { x: 0, y: y_anchor } };
 					y_anchor += 116;
 					break;
 				case "List":
-					options.playlist = { position: { x: 0, y: y_anchor }, size: [ 0, 1 ] };
+					milkdropOptions.__initialWindowLayout.playlist = { position: { x: 0, y: y_anchor }, size: [ 0, 1 ] };
 					y_anchor += 144;
 					break;
 				case "Milkdrop":
@@ -100,19 +98,21 @@ if ( block ) {
 						y_anchor += 0;
 					}
 					if ( posEqu == 0 && posList != 0 ) { 
+						milkdrop_size = [ 0, 5 ];
 						milkdrop_pos = { x: 275, y: 0 };
 						y_anchor += 0;
 					}
 					if ( posEqu != 0 && posList != 0 ) { 
+						milkdrop_size = [ 5, 9 ];
 						milkdrop_pos = { x: 275, y: 0 };
 						y_anchor += 0;
 					}
 					if ( posEqu == 0 && posList == 0 ) {
-						milkdrop_size = [0, 4];
+						milkdrop_size = [ 0, 4 ];
 						milkdrop_pos = { x: 0, y: y_anchor };
 						y_anchor += 232;
 					}
-					options.milkdrop = { position: milkdrop_pos, size: milkdrop_size };
+					milkdropOptions.__initialWindowLayout.milkdrop = { position: milkdrop_pos, size: milkdrop_size };
 					break;
 			}
 		});
@@ -120,7 +120,5 @@ if ( block ) {
 	}
 	
 }
-
-milkdropOptions.__initialWindowLayout = options;
 
 export default milkdropOptions;

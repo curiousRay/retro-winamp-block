@@ -20,6 +20,10 @@
 
 #webamp:not(.is-loaded) {
   opacity: 0;
-  position: absolute;
+  position: relative !important;
   visibility: hidden;
+}
+
+#webamp {
+  position: relative !important;
 }/*# sourceMappingURL=style.css.map */

@@ -7,6 +7,8 @@ import milkdropOptions from './milkdrop';
 
 // Run on window.load to reduce jank on page load
 window.addEventListener( 'load', () => {
+
+	// move webamp from body root to our container
 	const container = document.querySelector( '.wp-block-tenup-winamp-block' );
 
 	// Ensure our container exists
@@ -59,6 +61,10 @@ window.addEventListener( 'load', () => {
 	new Webamp( { ...options, ...milkdropOptions } )
 		.renderWhenReady( container )
 		.then( () => {
+			container.appendChild(document.getElementById( 'webamp' ));
+
+
+
 			const player = document.getElementById( 'webamp' );
 
 			const block = document.querySelector(".wp-block-tenup-winamp-block");
@@ -78,6 +84,28 @@ window.addEventListener( 'load', () => {
 			if ( player ) {
 				setTimeout( () => {
 					player.classList.add( 'is-loaded' );
+
+					// Make winamp windows not draggable everywhere
+					document.querySelectorAll("div.draggable").forEach(elem => {
+						elem.classList.remove("draggable");
+					})
+
+					// adjust position after putting webamp into the block container 
+					var initPosX, initPosY;
+					document.querySelector('#webamp div div').childNodes.forEach((elem, index) => {
+						// re-positioning on axis X
+						var elemPosX = parseFloat(elem.style.transform.match(/translate\((\d+)px,\s*\d+px\)/)[1]); // iterate X position of each window
+						if (index == 0) { initPosX = elemPosX; } // save first window (Main window)'s X-position for baseline
+						var elemPosX_new = (elemPosX - initPosX).toString()+'px'; // calc new X-position
+						elem.style.transform = elem.style.transform.replace(/translate\(\d+px/, "translate(" + elemPosX_new); // apply change
+
+					    // re-positioning on axis Y
+						var elemPosY = parseFloat(elem.style.transform.match(/, (.*?)px/)[1]); // iterate Y position of each window
+						if (index == 0) { initPosY = elemPosY; } // save first window (Main window)'s Y-position for baseline
+						var elemPosY_new = (elemPosY - initPosY).toString()+'px'; // calc new X-position
+						elem.style.transform = elem.style.transform.replace(/,(.*?\))/, ', ' + elemPosY_new + ')'); // apply change
+				   })
+
 				}, 1000 );
 			}
 		} );

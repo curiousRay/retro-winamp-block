@@ -90,7 +90,7 @@ window.addEventListener( 'load', () => {
 						elem.classList.remove("draggable");
 					})
 
-					// adjust position after putting webamp into the block container 
+					// Adjust position after putting webamp into the block container 
 					var initPosX, initPosY;
 					document.querySelector('#webamp div div').childNodes.forEach((elem, index) => {
 						// re-positioning on axis X
@@ -102,7 +102,7 @@ window.addEventListener( 'load', () => {
 					    // re-positioning on axis Y
 						var elemPosY = parseFloat(elem.style.transform.match(/, (.*?)px/)[1]); // iterate Y position of each window
 						if (index == 0) { initPosY = elemPosY; } // save first window (Main window)'s Y-position for baseline
-						var elemPosY_new = (elemPosY - initPosY).toString()+'px'; // calc new X-position
+						var elemPosY_new = (elemPosY - initPosY).toString()+'px'; // calc new Y-position
 						elem.style.transform = elem.style.transform.replace(/,(.*?\))/, ', ' + elemPosY_new + ')'); // apply change
 				   })
 

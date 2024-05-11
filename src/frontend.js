@@ -94,14 +94,14 @@ window.addEventListener( 'load', () => {
 					var initPosX, initPosY;
 					document.querySelector('#webamp div div').childNodes.forEach((elem, index) => {
 						// re-positioning on axis X
-						var elemPosX = parseFloat(elem.style.transform.match(/translate\((\d+)px,\s*\d+px\)/)[1]); // iterate X position of each window
-						if (index == 0) { initPosX = elemPosX; } // save first window (Main window)'s X-position for baseline
+						var elemPosX = parseFloat(elem.style.transform.match(/translate\(([-]?\d+)px,\s*[-]?\d+px\)/)[1]); // iterate X position of each window
+						if (index == 0) { initPosX = elemPosX; } // get first window (Main window)'s X-position as baseline
 						var elemPosX_new = (elemPosX - initPosX).toString()+'px'; // calc new X-position
 						elem.style.transform = elem.style.transform.replace(/translate\(\d+px/, "translate(" + elemPosX_new); // apply change
 
 					    // re-positioning on axis Y
 						var elemPosY = parseFloat(elem.style.transform.match(/, (.*?)px/)[1]); // iterate Y position of each window
-						if (index == 0) { initPosY = elemPosY; } // save first window (Main window)'s Y-position for baseline
+						if (index == 0) { initPosY = elemPosY; } // get first window (Main window)'s Y-position as baseline
 						var elemPosY_new = (elemPosY - initPosY).toString()+'px'; // calc new Y-position
 						elem.style.transform = elem.style.transform.replace(/,(.*?\))/, ', ' + elemPosY_new + ')'); // apply change
 				   })

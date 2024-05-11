@@ -16,7 +16,7 @@ export const WebAmp = ( props ) => {
 		if ( divRef === null ) {
 			return;
 		}
-
+		
 		const options = {
 			initialTracks: [],
 		};
@@ -50,23 +50,44 @@ export const WebAmp = ( props ) => {
 				webampContainer.appendChild( webAmp );
 			}
 
-			// This is a hack to move the UI elements into the correct position. The
-			// Webamp library tries to center the player in the window, but we want it
-			// to be tucked neatly in the block.
-			const webAmpUI = document.querySelectorAll( '#webamp > div > div > div' );
-			const mapping = {
-				0: 'translate( 0px, 0px )',
-				1: 'translate( 0px, 232px )',
-				2: 'translate( 0px, 116px )',
-				3: 'translate( 275px, 0px )',
-			};
+			// Make winamp windows not draggable everywhere
+			document.querySelectorAll("div.draggable").forEach(elem => {
+				elem.classList.remove("draggable");
+			})
+				
+			// Create a MutationObserver to watch for changes in the DOM
+			function handleMutation(mutationsList, observer) {
+				for (const mutation of mutationsList) {
+					if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+						if (mutation.target.style.transform !== "translate(0px, 0px)") {
+							// console.log(`'transform' property changed to: ${mutation.target.style.transform}`);
 
-			// make sure all the UI elements are available to manipulate
-			if ( webAmpUI.length === 4 ) {
-				webAmpUI.forEach( ( ui, i ) => {
-					ui.style.transform = mapping[ i ];
-				} );
+							// This is a hack to move the UI elements into the correct position. The
+							// Webamp library tries to center the player in the window, but we want it
+							// to be tucked neatly in the block.
+							var initPosX, initPosY;
+							document.querySelector('#webamp div div').childNodes.forEach((elem, index) => {
+
+								// re-positioning on axis X
+								var elemPosX = parseFloat(elem.style.transform.match(/translate\(([-]?\d+)px,\s*[-]?\d+px\)/)[1]); // iterate X position of each window
+								if (index == 0) { initPosX = elemPosX; } // get first window (Main window)'s X-position as baseline
+								var elemPosX_new = (elemPosX - initPosX).toString()+'px'; // calc new X-position
+
+								elem.style.transform = elem.style.transform.replace(/translate\(\d+px/, "translate(" + elemPosX_new); // apply change
+								// re-positioning on axis Y
+								var elemPosY = parseFloat(elem.style.transform.match(/, (.*?)px/)[1]); // iterate Y position of each window
+								if (index == 0) { initPosY = elemPosY; } // get first window (Main window)'s Y-position as baseline
+								var elemPosY_new = (elemPosY - initPosY).toString()+'px'; // calc new Y-position
+								elem.style.transform = elem.style.transform.replace(/,(.*?\))/, ', ' + elemPosY_new + ')'); // apply change
+							})
+							
+						}
+					}
+				}
 			}
+			const observer = new MutationObserver(handleMutation);
+			// Start observing the DOM
+			observer.observe(document.querySelector('#webamp div div div'), { attributes: true, attributeFilter: ['style'] });
 
 			// Add is loaded class after artifical delay to reduce page jank
 			if ( webAmp ) {

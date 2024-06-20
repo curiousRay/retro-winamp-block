@@ -2,7 +2,7 @@
 Contributors:      10up, dinhtungdu, fabiankaegy, dkotter, melchoyce, jeffpaul
 Tags:              winamp, webamp, mp3, music, audio, player, playlist, equalizer, block
 Tested up to:      6.5
-Stable tag:        1.4.0
+Stable tag:        1.3.2
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,7 @@ Details on how to create a new skin is available [here](https://github.com/WACUP
 
 == Changelog ==
 
-= 1.4.0 - 2024-06-20 =
+= 1.3.2 - 2024-06-20 =
 * **Added:** Support for the WordPress.org plugin preview (props [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul), [@peterwilsoncc](https://github.com/peterwilsoncc), [@ravinderk](https://github.com/ravinderk) via [#116](https://github.com/10up/retro-winamp-block/pull/116)).
 * **Added:** "Testing" section in the "CONTRIBUTING.md" file (props [@kmgalanakis](https://github.com/kmgalanakis), [@jeffpaul](https://github.com/jeffpaul) via [#132](https://github.com/10up/retro-winamp-block/pull/132)).
 * **Changed:** Winamp skin preview setting to be on by default (props [@jeffpaul](https://github.com/jeffpaul), [@psorensen](https://github.com/psorensen), [@dkotter](https://github.com/dkotter) via [#124](https://github.com/10up/retro-winamp-block/pull/124)).

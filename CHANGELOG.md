@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [1.4.0] - 2024-06-20
+## [1.3.2] - 2024-06-20
 ### Added
 - Support for the WordPress.org plugin preview (props [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul), [@peterwilsoncc](https://github.com/peterwilsoncc), [@ravinderk](https://github.com/ravinderk) via [#116](https://github.com/10up/retro-winamp-block/pull/116)).
 - "Testing" section in the "CONTRIBUTING.md" file (props [@kmgalanakis](https://github.com/kmgalanakis), [@jeffpaul](https://github.com/jeffpaul) via [#132](https://github.com/10up/retro-winamp-block/pull/132)).
@@ -116,7 +116,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of the Winamp Block plugin. 🎉
 
 [Unreleased]: https://github.com/10up/retro-winamp-block/compare/trunk...develop
-[1.4.0]: https://github.com/10up/retro-winamp-block/compare/1.3.1...1.4.0
+[1.3.2]: https://github.com/10up/retro-winamp-block/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/10up/retro-winamp-block/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/10up/retro-winamp-block/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/10up/retro-winamp-block/compare/1.1.0...1.2.0

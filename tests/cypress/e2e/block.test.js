@@ -19,16 +19,14 @@ describe( 'Admin can publish posts with winamp block', () => {
 				cy.get( 'body' ).then( $body => {
 					if ( $body.find( 'button[aria-label="Toggle block inserter"]' ).length > 0 ) {
 						cy.get( 'button[aria-label="Toggle block inserter"]' ).click();
-						cy.get( '.components-search-control__input' ).type( 'tenup/winamp-block' );
+						cy.get( '.block-editor-inserter__search input' ).type( 'tenup/winamp-block' );
 						cy.get( '.editor-block-list-item-tenup-winamp-block' ).click();
 					} else {
 						cy.insertBlock( 'tenup/winamp-block' );
 					}
 				} );
 				// select mp3
-				cy.get(
-					'.wp-block-tenup-winamp-block .components-button.is-tertiary'
-				).click();
+				cy.get('.wp-block-tenup-winamp-block').contains('button', 'Media Library').click();
 				cy.get('#menu-item-browse').click();
 				cy.contains( '.filename div', 'example.mp3' )
 					.closest( '.thumbnail' )
